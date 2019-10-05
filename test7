@@ -1,0 +1,110 @@
+#Day41
+class wejdan:
+    x = 5
+p = wejdan()
+print(p.x)
+class person:
+    def __init__(self , name, age):
+        self.name = name
+        self.age = age
+p1 = person("John" , 36)
+print(p1.name)
+print(p1.age)
+
+
+#Day42
+class person:
+    def __init__(self , name, age):
+        self.name = name
+        self.age = age
+    def myfunc(self):
+        print(self.name)
+p1 = person("John" , 36)
+p1.age= 40
+print(p1.age)
+del p1
+print(p1)
+
+
+#day43
+class Person:
+    def w (self, fname, lname):
+        self.firstname = fname
+        self.lastname = lname
+    def printname(self):
+        print(self.firstname, self.lastname)
+x = Person("wejdan", "Alenzi")
+x.printname()
+class student(person):
+    pass
+y = student("Mike" , "Olsen")
+y.printname()
+
+
+#day44
+class Person:
+    def w (self, fname, lname):
+        self.firstname = fname
+        self.lastname = lname
+    def printname(self):
+        print(self.firstname, self.lastname)
+class student(Person):
+    def w (self, fname, lname, year):
+        super().w(fname, lname)
+        self.graduationyear = year
+    def welcome(self):
+        print("Welcome", self.firstname, self.lastname , "to the class of",self.graduationyear)
+y = student("Mike" , "Olsen",2019)
+y.welcome()
+
+
+#day45
+mytuple = ("apple","orange","cherry")
+myit = iter(mytuple)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+name = "Wejdan"
+name = iter(name)
+print(next(name))
+print(next(name))
+print(next(name))
+print(next(name))
+print(next(name))
+class num:
+    def __iter__ (self):
+        self.a = 1
+        return self
+    def __next__(self):
+        if self.a <=8:
+            x = self.a
+            self.a +=1
+            return x
+        else:
+            raise StopIteration
+myclass = num()
+myiter= iter(myclass)
+for x in myiter:
+         print(x)
+         
+         
+#Day46&47
+class library:
+    def __init__(self,book,shelf):
+        self.book = book
+        self.shelf =shelf
+x3 = library(300,45)
+#print(x3.book)
+
+class science_section(library):
+    def __init__(self,book,shelf,name):
+        super().__init__(book,shelf)
+        self.name = name
+
+    def printinforamation(self):
+        print("Number of the book is", self.book ,
+              "Number of the shelf is", self.shelf,
+              "And", self.name)
+
+End= science_section(20,4,"Physics books")
+End.printinforamation()
